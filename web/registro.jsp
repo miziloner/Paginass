@@ -8,44 +8,67 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+
 	<script type="text/javascript" src="/WebApplication/js/jquery.js"></script>
 	<script type="text/javascript" src="/WebApplication/js/jquery.ui.js"></script>
-	
+
 	<script type="text/javascript">
+
 	    $(document).ready(function () {
-		$('#btnr').click(function () {
-		   alert("simijoo")
+		$('#btna').click(function (){		
+		    if ($("#name").val() === "") {
+			alert("El campo Nombre no puede estar vacío.");
+			$("#name").focus();   
+			return false;
+		    }
+		    if ($("#email").val() === "") {
+			alert("El campo email no puede estar vacío.");
+			$("#name").focus();   
+			return false;
+		    }
+		    if ($("#password").val() === "") {
+			alert("El campo password no puede estar vacío.");
+			$("#name").focus();  
+			return false;
+		    }
+		
 		    document.RegistroForm.method = 'post';
-		    document.RegistroForm.action = 'Registro.do?do=reto';
-		    
+		    document.RegistroForm.action = 'Registro.do?do=reg';
 		    document.RegistroForm.submit();
+		    
 		});
+		
 	    });
 	</script> 
-	
+
+
         <title>Registro</title>
     </head>
     <body>
-        <html:form action="Registro.do?do=init" method="post" onsubmit="return true" enctype="multipart/form-data" styleId="RegistroForm">
+        <html:form action="Registro.do?do=init" method="post" onsubmit="return true" 
+		   enctype="multipart/form-data" styleId="RegistroForm">
 
-	    <div id="login">
-		
-		    <label>Nombre: </label>
-		    <input type="text" name="name"/><br>
-		    <label>Username: </label>
-		    <input type="text" name="username"/><br><br>
-		    
-		    <input type="button" value="Enviar" id="btne"/>
-		    <input type="button" value="Regresar" id="btnr"/>
-		
+	    <div id="registro">
+
+
+		nombre: <html:text name="RegistroForm" property="name" styleId="name" /><br><br>
+		correo electronico: <html:text name="RegistroForm" property="email" styleId="email" /><br><br>
+		contraseña: <html:password name="RegistroForm" property="password" styleId="password"/><br><br>
+		<input type="button" value="Enviar" id="btna"/>
+
+		<!--label>Nombre: </label>
+		<input type="text" name="name"/><br><br>
+		<label>Email: </label>
+		<input type="email" name="email"/><br><br>
+		<label>Contraseña: </label>
+		<input type="password" name="password"/><br><br>
+
+
+		<input type="button" value="Enviar" id="btne"/>
+		<input type="button" value="Regresar" id="btnr"-->
+
 	    </div>
 	</body>
-
-
-	
-
-
 
     </html:form>
 

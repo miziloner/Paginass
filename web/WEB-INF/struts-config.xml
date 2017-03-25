@@ -3,56 +3,65 @@
 
 <struts-config>
  
-	<form-beans>
-		<form-bean name="LoginForm" type="org.apache.struts.action.DynaActionForm"></form-bean>
-		<form-bean name="SaludoForm" type="org.apache.struts.action.DynaActionForm"></form-bean>
-		<form-bean name="RegistroForm" type="org.apache.struts.action.DynaActionForm"></form-bean>
+    <form-beans>
+	<form-bean name="LoginForm" type="org.apache.struts.action.DynaActionForm">
+	    <form-property name="name" type="java.lang.String"/>
+	    <form-property name="password" type="java.lang.String"/>
+	</form-bean>
+	<form-bean name="SaludoForm" type="org.apache.struts.action.DynaActionForm"></form-bean>
+	
+	<form-bean name="RegistroForm" type="org.apache.struts.action.DynaActionForm">
+	    <form-property name="name" type="java.lang.String"/>
+	    <form-property name="email" type="java.lang.String"/>
+	    <form-property name="password" type="java.lang.String"/>
+	   
+	</form-bean>
 		
 
 		
-	</form-beans>
+    </form-beans>
 
-	<global-exceptions/>
+    <global-exceptions/>
 
-	<global-forwards>
-		<forward name="welcome" path="Welcome.do?do=start"></forward>
-		<forward name="saludo" path="Saludo.do?do=start"></forward>
-		<forward name="registro" path="Registro.do?do=start"></forward>
+    <global-forwards>
+	<forward name="welcome" path="Welcome.do?do=start"></forward>
+	<forward name="saludo" path="Saludo.do?do=start"></forward>
+	<forward name="registro" path="Registro.do?do=start"></forward>
 		
 		
-	</global-forwards>
+    </global-forwards>
 
-	<action-mappings>
-		<action path="/Welcome" type="com.myapp.struts.StartAction" 
+    <action-mappings>
+	<action path="/Welcome" type="com.myapp.struts.StartAction" 
 			name="LoginActionForm" parameter="do" 
 			scope="request" validate="false" unknown="false">
-			<forward name="start" path="/login.jsp"></forward>
+	    <forward name="start" path="/login.jsp"></forward>
 			
 			
 			
-		</action>
-		<action path="/Login" type="com.myapp.struts.LoginAction" 
+	</action>
+	<action path="/Login" type="com.myapp.struts.LoginAction" 
 			name="LoginForm" parameter="do" scope="request" 
 			validate="false" unknown="false">
-			<forward name="vamos" path="/saludo.jsp"></forward>
+	    <forward name="vamos" path="/saludo.jsp"></forward>
 			
 			
 			
-		</action>
-		<action path="/Saludo" type="com.myapp.struts.SaludoAction" 
+	</action>
+	<action path="/Saludo" type="com.myapp.struts.SaludoAction" 
 			name="SaludoForm" parameter="do" scope="request" 
 			validate="false" unknown="false">
-			<forward name="regresa" path="/login.jsp"></forward>
+	    <forward name="regresa" path="/login.jsp"></forward>
 			
-		</action>
-		<action path="/Registro" type="com.myapp.struts.RegistroAction" 
+	</action>
+	<action path="/Registro" type="com.myapp.struts.RegistroAction" 
 			name="RegistroForm" parameter="do" scope="request" 
 			validate="false" unknown="false">
-			<forward name="registra" path="/registro.jsp"></forward>
-			<forward name="retorna" path="/login.jsp"></forward>
+	    <forward name="registra" path="/registro.jsp"></forward>
+	    <forward name="retorna" path="/login.jsp"></forward>
 			
-		</action>
+	</action>
 		
-	</action-mappings>
+    </action-mappings>
 
 </struts-config>

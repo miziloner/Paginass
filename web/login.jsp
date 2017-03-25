@@ -11,12 +11,7 @@
 	<script type="text/javascript" src="/WebApplication/js/jquery.js"></script>
 	<script type="text/javascript" src="/WebApplication/js/jquery.ui.js"></script>
 	
-	<script type="text/javascript">
-	    function hola(){
-		
-		alert("hola")
-	    }
-	</script>  
+	
 	<script type="text/javascript">
 	    $(document).ready(function () {
 		$('#btn').click(function () {
@@ -44,10 +39,13 @@
     <body style="background-color:#FFFFFF">
 	<html:form action="Login.do?do=init" method="post" onsubmit="return true" enctype="multipart/form-data" styleId="LoginForm">
 
-	    <h1>Prueba</h1>
+	    <h1>Login</h1>
 	    
-	    <input type="button" value="registro" id="btn">
-	    <input type="button" value="saludo" id="btn2">
+	    nombre: <html:text name="LoginForm" property="name" styleId="name"/><br><br>
+	    password: <html:password name="LoginForm" property="password" styleId="password"/><br><br>
+	    
+	    <input type="button" value="Registrar" id="btn">
+	    <input type="button" value="Ingresar" id="btn2">
 
 	</html:form>
     </body>

@@ -16,7 +16,7 @@
 	<script type="text/javascript">
 	    $(document).ready(function () {
 		$('#btnr').click(function () {
-		    alert("si da click");
+		   
 		    document.SaludoForm.method = 'post';
 		    document.SaludoForm.action = 'Saludo.do?do=ret';
 		    document.SaludoForm.submit();
