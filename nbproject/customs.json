@@ -1,0 +1,6 @@
+{
+    "elements": {
+	"session.getattribute(\"lastname\")": {}
+    },
+    "attributes": {}
+}

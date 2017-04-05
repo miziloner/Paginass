@@ -21,31 +21,32 @@ public class LoginAction extends DispatchAction {
 		
 		DynaActionForm frmForma = (DynaActionForm) form;
 		String userAgent = request.getHeader("User-Agent").toLowerCase();
+		
 		String name = (String) frmForma.get("name");
 		String password = (String) frmForma.get("password");
 		
 		Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/prueba", "root", "root");
 		
-           Statement st=con.createStatement();
-           ResultSet rs=st.executeQuery("select * from usuario where name='"+name+"' and password='"+password+"'");
-           int count=0;
-           while(rs.next()){
-           count++;
-          }
-          if(count>0){
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("select * from usuario where name='"+name+"' and password='"+password+"'");
+		
+        int count=0;
+        while(rs.next()){
+			count++;
+		}
+        if(count>0){
            out.println("welcome "+name);
-           }
-          else{
-           response.sendRedirect("saludo.jsp");
-          }
-        
-    
-		
-		return mapping.findForward("vamos");
-		
+		   System.out.println("if");
+		   return mapping.findForward("vamos");
+		   	   
+        }else{
+		   System.out.println("else");
+           return mapping.findForward("failure");
+        }
+
 	}
 	
-
+	
 	
 }

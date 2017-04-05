@@ -13,12 +13,14 @@
 	
 	
 	<script type="text/javascript">
+	  
+	    
 	    $(document).ready(function () {
 		$('#btn').click(function () {
 		   
 		    document.LoginForm.method = 'post';
 		    document.LoginForm.action = 'Registro.do?do=reg';
-		    
+		   
 		    document.LoginForm.submit();
 		});
 	    });
@@ -26,6 +28,7 @@
 
 	<script type="text/javascript">
 	    $(document).ready(function () {
+		
 		$('#btn2').click(function () {
 		   // alert("funcion jquery");
 		    document.LoginForm.method = 'post';
@@ -43,6 +46,8 @@
 	    
 	    nombre: <html:text name="LoginForm" property="name" styleId="name"/><br><br>
 	    password: <html:password name="LoginForm" property="password" styleId="password"/><br><br>
+	    
+	    
 	    
 	    <input type="button" value="Registrar" id="btn">
 	    <input type="button" value="Ingresar" id="btn2">
