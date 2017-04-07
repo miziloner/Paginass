@@ -56,17 +56,17 @@
 		validate="false" unknown="false">
 	    <forward name="vamos" path="/saludo.jsp"></forward>
 	    <forward name="failure" path="/failure.jsp"></forward>
-			
-			
-			
+		
 	</action>
+	
 	<action path="/Saludo" type="com.myapp.struts.SaludoAction" 
 		name="SaludoForm" parameter="do" scope="request" 
 		validate="false" unknown="false">
 	    <forward name="regresa" path="/login.jsp"></forward>
-	    
-			
+	    <forward name="muestra" path="/saludo.jsp"></forward>
+		
 	</action>
+	
 	<action path="/Registro" type="com.myapp.struts.RegistroAction" 
 		name="RegistroForm" parameter="do" scope="request" 
 		validate="false" unknown="false">

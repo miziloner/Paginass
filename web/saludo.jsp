@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
         <title>Main</title>
 
 	<script type="text/javascript" src="/WebApplication/js/jquery.js"></script>
@@ -17,7 +18,6 @@
 	<script type="text/javascript">
 	    $(document).ready(function () {
 		$('#btnr').click(function () {
-
 		    document.SaludoForm.method = 'post';
 		    document.SaludoForm.action = 'Saludo.do?do=ret';
 		    document.SaludoForm.submit();
@@ -27,7 +27,7 @@
 	<script type="text/javascript">
 	    $(document).ready(function () {
 		$('#btnShow').click(function () {
-
+		    
 		    document.SaludoForm.method = 'post';
 		    document.SaludoForm.action = 'Saludo.do?do=muestra';
 		    document.SaludoForm.submit();
@@ -35,7 +35,6 @@
 	    });
 	</script>
 	
-
 
     </head>
 
@@ -50,7 +49,7 @@
 		<th>Email</th>
 	    </tr>
 	    <tr>
-		<logic:iterate name="SaludoForm"id="usersId" property="listId">
+		<logic:iterate name="SaludoForm" id="usersId" property="listId">
 		<tr>
 		    <td><bean:write name="usersId" property="name"/></td>
 		    <td><bean:write name="usersId" property="email"/></td>

@@ -1,18 +1,16 @@
-
 package com.myapp.struts;
 
-
 public class Usuario {
+
+	private String name;
+	private String password;
+	private String email;
 
 	public Usuario(String name, String password, String email) {
 		this.name = name;
 		this.password = password;
 		this.email = email;
 	}
-
-	public String name;
-	public String password;
-	public String email;
 
 	Usuario(String name) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -59,6 +57,5 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
 }

@@ -1,4 +1,5 @@
 package com.myapp.struts;
+
 import com.myapp.struts.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,23 +18,21 @@ import org.apache.struts.action.DynaActionForm;
 import org.apache.struts.actions.DispatchAction;
 
 public class SaludoAction extends DispatchAction {
+
 	private Object DBUtil;
 
 	public ActionForward ret(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 		DynaActionForm frmForma = (DynaActionForm) form;
-		System.out.println("Si entra aqui");
 		String userAgent = request.getHeader("User-Agent").toLowerCase();
 
 		return mapping.findForward("regresa");
 
 	}
 
-	
-	
 	public ActionForward muestra(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException {
 		DynaActionForm SaludoForm = (DynaActionForm) form;
 		List list = new ArrayList();
-		
+
 		Statement stmt = null;
 		ResultSet rs = null;
 		Usuario u;
@@ -41,26 +40,20 @@ public class SaludoAction extends DispatchAction {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/prueba", "root", "root");
 		String query = "select * from usuario";
-
+		stmt=con.createStatement();
 		rs = stmt.executeQuery(query);
 		while (rs.next()) {
-			u= new Usuario(rs.getString("name"));
-			Usuario(rs.getString("email"));
-			Usuario(rs.getString("password"));
-			
+
+			u = new Usuario(rs.getString("name"), rs.getString("email"), rs.getString("password"));
 			list.add(u);
-			SaludoForm.set("listId",list);
-			
 			
 		}
-		
-		return mapping.findForward ("muestra");
+		SaludoForm.set("listId", list);
+		return mapping.findForward("muestra");
 	}
 
 	private void Usuario(String string) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	
-	
 }
